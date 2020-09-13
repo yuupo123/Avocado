@@ -331,6 +331,7 @@ void controllerSetupWindow() {
         button(selectedController, "l1", "Left Button");
         button(selectedController, "r1", "Right Button");
     }
+
     if (currentType == ControllerType::digital || currentType == ControllerType::analog) {
         button(selectedController, "dpad_up", "D-Pad Up");
         button(selectedController, "dpad_down", "D-Pad Down");
@@ -364,6 +365,20 @@ void controllerSetupWindow() {
             button(selectedController, "r_left", "Right Stick Left");
         }
     }
+
+    button(selectedController, "freecam_up", "Free Camera Up");
+    button(selectedController, "freecam_down", "Free Camera Down");
+    button(selectedController, "freecam_left", "Free Camera Left");
+    button(selectedController, "freecam_right", "Free Camera Right");
+    button(selectedController, "freecam_forward", "Free Camera Forward");
+    button(selectedController, "freecam_backward", "Free Camera Backward");
+
+    button(selectedController, "freecam_look_up", "Free Camera Look Up");
+    button(selectedController, "freecam_look_down", "Free Camera Look Down");
+    button(selectedController, "freecam_look_left", "Free Camera Look Left");
+    button(selectedController, "freecam_look_right", "Free Camera Look Right");
+    button(selectedController, "freecam_look_forward", "Free Camera Roll Left");
+    button(selectedController, "freecam_look_backward", "Free Camera Roll Right");
 
     auto inputManager = static_cast<SdlInputManager*>(InputManager::getInstance());
     if (ImGui::BeginPopupModal("Waiting for key...", &inputManager->waitingForKeyPress, ImGuiWindowFlags_AlwaysAutoResize)) {

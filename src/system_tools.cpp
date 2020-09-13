@@ -7,6 +7,7 @@
 #include "system.h"
 #include "utils/file.h"
 #include "utils/psf.h"
+#include "utils/gameshark.h"
 
 namespace system_tools {
 
@@ -59,6 +60,12 @@ void loadFile(std::unique_ptr<System>& sys, const std::string& path) {
         if (state::loadFromFile(sys.get(), path)) {
             return;
         }
+    }
+
+    if (ext == "txt") {
+        Gameshark* gameshark = Gameshark::getInstance();
+        gameshark->readFile(path);
+        return;
     }
 
     std::unique_ptr<disc::Disc> disc = disc::load(path);
